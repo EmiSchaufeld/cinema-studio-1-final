@@ -1,43 +1,25 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class PickUpObject : MonoBehaviour
 {
-    public Transform player;
-    public float throwForce = 10;
-    bool hasPlayer = false;
-    bool beingCarried = false;
+    public Transform theHand;
 
-    void OnTriggerEnter(Collider other)
+    private void OnMouseDown()
     {
-        hasPlayer = true;
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Rigidbody>().useGravity = false;
+        this.transform.position = theHand.position;
+        this.transform.parent = GameObject.Find("Hand").transform;
+
+
+    }
+    private void OnMouseUp()
+    {
+        this.transform.parent = null;
+        GetComponent<Collider>().enabled = true;
+        GetComponent<Rigidbody>().useGravity = true;
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        hasPlayer = false;
-    }
-
-    void Update()
-    {
-        if (beingCarried)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                GetComponent<Rigidbody>().isKinematic = false;
-                transform.parent = null;
-                beingCarried = false;
-                GetComponent<Rigidbody>().AddForce(player.forward * throwForce);
-            }
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0) && hasPlayer)
-            {
-                GetComponent<Rigidbody>().isKinematic = true;
-                transform.parent = player;
-                beingCarried = true;
-            }
-        }
-    }
 }
