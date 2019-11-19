@@ -3,7 +3,12 @@ guid: 70d3a673c09df4693974f01cc43e4adf
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bamboo
+    second: {fileID: 2100000, guid: 4f7414d2333350b4eab69f71c85784c1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
