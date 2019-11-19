@@ -11,6 +11,7 @@ public class PickupRaycast : MonoBehaviour
     public GameObject target;
     GameObject itemGrabbed = null;
     bool rbody= true;
+    public bool isHeld = false;
     
 
     CursorLockMode cursorLock;
@@ -22,6 +23,12 @@ public class PickupRaycast : MonoBehaviour
 
     void Update()
     {
+        if(isHeld == true)
+        {
+            Rigidbody rb =itemGrabbed.GetComponent<Rigidbody>();
+            rb.MovePosition(target.transform.position);
+       
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (rbody == true)
@@ -59,10 +66,11 @@ public class PickupRaycast : MonoBehaviour
                 if (hit.collider.tag == "pickObject")
                 {
                     rbody = false;
+                    isHeld = true;
                     Debug.Log("You hit a pickObject!");
                     itemGrabbed = hit.collider.gameObject;
                     itemGrabbed.transform.SetParent(target.transform);
-                    itemGrabbed.transform.localPosition = new Vector3(0, 0, 0);
+                    //itemGrabbed.transform.localPosition = new Vector3(0, 0, 0);
                     itemGrabbed.GetComponent<Rigidbody>().isKinematic = true;
                     itemGrabbed.GetComponent<Rigidbody>().useGravity = false;
 
@@ -77,12 +85,13 @@ public class PickupRaycast : MonoBehaviour
     void Drop()
     {
         rbody = true;
+        isHeld = false;
         Debug.Log(itemGrabbed.name);
-            itemGrabbed.GetComponent<Rigidbody>().isKinematic = false;
-            itemGrabbed.GetComponent<Rigidbody>().useGravity = true;
-            itemGrabbed.transform.SetParent(null);
-           
-            itemGrabbed = null;
+        itemGrabbed.GetComponent<Rigidbody>().isKinematic = false;
+        itemGrabbed.GetComponent<Rigidbody>().useGravity = true;
+        itemGrabbed.transform.SetParent(null);
+
+        itemGrabbed = null;
 
 
         }
