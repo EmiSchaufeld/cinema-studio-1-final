@@ -6,6 +6,8 @@ public class ActiveCamera : MonoBehaviour
 {
     public Camera camOne;
     public Camera camTwo;
+    public PickupRaycast pickupRaycast;
+    bool lastIsHeld;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,21 +19,20 @@ public class ActiveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-         camOne.enabled = true;
-        camTwo.enabled = false;
-        
-        
+        if (pickupRaycast.isHeld == true && lastIsHeld == false)
+        {
+            camOne.enabled = false;
+            camTwo.enabled = true;
 
-
+        }
+        if(pickupRaycast.isHeld == false)
+        {
+            camOne.enabled = true;
+            camTwo.enabled = false;
+        }
+        lastIsHeld = pickupRaycast.isHeld;
     }
+   
 
-    private void OnTriggerExit(Collider other)
-    {
-       camTwo.enabled = true;
-        camOne.enabled = false;
-    }
+    
 }
