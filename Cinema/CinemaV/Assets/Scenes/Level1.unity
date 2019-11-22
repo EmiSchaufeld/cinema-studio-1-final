@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5254902, g: 0.9529412, b: 0.696844, a: 1}
+  m_FogColor: {r: 0.5990566, g: 1, b: 0.8141197, a: 1}
   m_FogMode: 2
   m_FogDensity: 0.05
   m_LinearFogStart: 0
@@ -5779,6 +5779,18 @@ PrefabInstance:
     - target: {fileID: 2000000, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
       propertyPath: field of view
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400014, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
+      propertyPath: walkSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400014, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
+      propertyPath: jumpSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400014, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
+      propertyPath: slideWhenOverSlopeLimit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
@@ -20711,7 +20723,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23760
+  m_Name: pb_Mesh234362
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27170,7 +27182,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+  m_Color: {r: 1, g: 0.9857648, b: 0.9386792, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -41813,16 +41825,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45.709003
       objectReference: {fileID: 0}
-    - target: {fileID: -1177449245054813747, guid: 70d3a673c09df4693974f01cc43e4adf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 87.79
-      objectReference: {fileID: 0}
-    - target: {fileID: -1177449245054813747, guid: 70d3a673c09df4693974f01cc43e4adf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.57
-      objectReference: {fileID: 0}
     - target: {fileID: -643038488436488938, guid: 70d3a673c09df4693974f01cc43e4adf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41832,6 +41834,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1177449245054813747, guid: 70d3a673c09df4693974f01cc43e4adf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 87.79
+      objectReference: {fileID: 0}
+    - target: {fileID: -1177449245054813747, guid: 70d3a673c09df4693974f01cc43e4adf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d3a673c09df4693974f01cc43e4adf, type: 3}
